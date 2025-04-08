@@ -1,0 +1,32 @@
+docker run -d -p 6333:6333 \
+-v $(pwd)/qdrant_storage:/qdrant/storage:z \
+qdrant/qdrant
+docker run -d --net="host" --env RUNTYPE=-1 --env BROKERHOSTPORT=pkc-419q3.us-east4.gcp.confluent.cloud:9092 --env KAFKAPRODUCETOPIC=cisconetwork-
+mainstream --env HACKEDHOSTS=5.100-i,6.18-i,5.18-i --env CLOUDUSERNAME=3XISMD4AVOKC6KAP --env
+CLOUDPASSWORD=Qn4ZAobKpmQBNKKjnsCCvJWGksFnyAnhlB+LPq2G6JywaQiRJxrz12pn/FisQh8a jonny289710/tml-cisco-network-cyberthreats-amd64
+docker run -d -p 9000:9000 --net=host \
+--env VIPERVIZPORT=9000 \
+--env RUNTYPE=-2 \
+--env PGPTIP="http://127.0.0.1" \
+--env PGPTPORT=8001 \
+--env PGPTROLLBACK=4 \
+--env BROKERHOSTPORT=pkc-419q3.us-east4.gcp.confluent.cloud:9092 \
+--env KAFKAPRODUCETOPIC=cisco-network-mainstream \
+--env CLOUDUSERNAME=3XISMD4AVOKC6KAP \
+--env CLOUDPASSWORD=Qn4ZAobKpmQBNKKjnsCCvJWGksFnyAnhlB+LPq2G6JywaQiRJxrz12pn/FisQh8a \
+jonny289710/tml-cisco-networkcyberthreats-privategpt-amd64
+docker run -d -p 8001:8001 --net=host \
+--env PORT=8001 \
+--env GPU=0 \
+--env COLLECTION=tml \
+--env WEB_CONCURRENCY=1 \
+--env CUDA_VISIBLE_DEVICES=0 \
+jonny289710/tml-privategpt-no-gpu-amd64
+docker run -p 9000:9000 \
+--env RUNTYPE=-2 \
+--env VIPERVIZPORT=9000 \
+--env BROKERHOSTPORT=pkc-419q3.us-east4.gcp.confluent.cloud:9092 \
+--env KAFKAPRODUCETOPIC=cisco-network-mainstream \
+--env CLOUDUSERNAME=3XISMD4AVOKC6KAP \
+--env CLOUDPASSWORD=Qn4ZAobKpmQBNKKjnsCCvJWGksFnyAnhlB+LPq2G6JywaQiRJxrz12pn/FisQh8a \
+jonny289710/tml-cisco-network-cyberthreats-amd64

@@ -1,0 +1,7 @@
+Kafka Topics:
+- cisco-network-mainstream
+- cisco-network-preprocess
+- cisco-network-privategpt
+
+Broker:
+- pkc-419q3.us-east4.gcp.confluent.cloud:9092
